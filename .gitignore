@@ -1,0 +1,6 @@
+.cocos-project.json
+.cproject
+.project
+.settings/
+linux-build/
+bin/
