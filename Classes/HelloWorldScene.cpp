@@ -73,8 +73,8 @@ bool HelloWorldScene::init() {
 
     // Create RAIG and connect to remote server
     m_RaigAI = new raig::Raig();
-    m_RaigAI->InitConnection("192.168.1.100", "27000");
-    //m_RaigAI->InitConnection("127.0.0.1", "27000");
+    //m_RaigAI->InitConnection("192.168.1.100", "27000");
+    m_RaigAI->InitConnection("127.0.0.1", "27000");
 
     // Send RAIG the size of the game world and type of service being
     auto layerSize = m_BackgroundLayer->getLayerSize();
