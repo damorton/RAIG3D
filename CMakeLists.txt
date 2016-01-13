@@ -113,6 +113,7 @@ include_directories(
   ${COCOS2D_ROOT}/cocos
   ${COCOS2D_ROOT}/cocos/platform
   ${COCOS2D_ROOT}/cocos/audio/include/
+  ${CMAKE_SOURCE_DIR}/external/libraig/include
   Classes
 )
 if ( WIN32 )

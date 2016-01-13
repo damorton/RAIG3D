@@ -1,9 +1,9 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef HELLOWORLD_SCENE_H_
+#define HELLOWORLD_SCENE_H_
 
 #include "../cocos2d/cocos/cocos2d.h"
 #include <vector>
-#include "../external/libraig/include/raig.h"
+#include "raig/raig_client.h"
 
 class Vector3;
 
