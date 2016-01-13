@@ -14,7 +14,7 @@ m_RaigAI->InitConnection("damortonpi.duckdns.org", "27000");
 
 - Download the repo
 - Extract contents of the .zip file
-- `cd raig3d-master/`
+- `cd RAIG3D-master/`
 - Build
 ```
 $ cocos run -s ./ -p linux
