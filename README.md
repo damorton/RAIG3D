@@ -3,7 +3,11 @@ Raig3D is Cocos2dx C++ demonstration project for the server side application `R.
 
 ## Instructions
 
-Make sure you have the RAIG server application running first. You can connect to `damortonpi.duckdns.org` for testing but this may not always be available.
+Install Cocos2dx http://www.cocos2d-x.org/wiki/Installations
+
+Make sure you have the RAIG server application running first. https://github.com/damorton/raig.git.
+
+You can connect to `damortonpi.duckdns.org` for testing but this may not always be available.
 
 To connect to the server application change the target address in `HelloWorldScene.cpp`:
 ```
