@@ -1,5 +1,5 @@
 # RAIG3D
-Raig3D is demonstration project for the server side application `R.A.I.G` https://github.com/damorton/raig.git
+Raig3D is Cocos2dx C++ demonstration project for the server side application `R.A.I.G` https://github.com/damorton/raig.git
 
 ## Instructions
 
