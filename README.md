@@ -3,13 +3,15 @@ Raig3D is Cocos2dx C++ demonstration project for the server side application `R.
 
 ## Instructions
 
-Install Cocos2dx http://www.cocos2d-x.org/wiki/Installations
+1. Install Cocos2dx http://www.cocos2d-x.org/wiki/Installations
 
-Make sure you have the RAIG server application running first. https://github.com/damorton/raig.git.
+2. Make sure you have the RAIG server application running first. https://github.com/damorton/raig.git. or You can connect to `damortonpi.duckdns.org` for testing but this may not always be available.
 
-You can connect to `damortonpi.duckdns.org` for testing but this may not always be available.
-
-To connect to the server application change the target address in `HelloWorldScene.cpp`:
+3. To connect to the server application change the target address in `HelloWorldScene.cpp` to:
+```
+m_RaigAI->InitConnection("127.0.0.1", "27000");
+```
+or to connect to my super Raspberry Pi:
 ```
 m_RaigAI->InitConnection("damortonpi.duckdns.org", "27000");
 ```
@@ -24,6 +26,10 @@ m_RaigAI->InitConnection("damortonpi.duckdns.org", "27000");
 $ cocos run -s ./ -p linux
 ```
 - Run `$ ./linux-build/bin/RAIG3D`
+
+### Windows 
+
+- Coming soon..
 
 ## Dependencies
 
