@@ -72,14 +72,14 @@ bool HelloWorldScene::init() {
     this->setCameraMask(2);
 
     // Create RAIG and connect to remote server
-    m_RaigAI = new raig::Raig();
+    m_RaigAI = new raig::RaigClient();
     //m_RaigAI->InitConnection("192.168.1.100", "27000");
     m_RaigAI->InitConnection("127.0.0.1", "27000");
 
     // Send RAIG the size of the game world and type of service being
     auto layerSize = m_BackgroundLayer->getLayerSize();
     m_iGameWorldSize = layerSize.width - 1;
-    m_RaigAI->CreateGameWorld(layerSize.width, raig::Raig::ASTAR);
+    m_RaigAI->CreateGameWorld(layerSize.width, raig::RaigClient::ASTAR);
 
     // Create obstacles in the game world by blocking off some of the cells on the RAIG grid
     // Read the tilemap properties and check if each cell is blocked or open
@@ -95,7 +95,7 @@ bool HelloWorldScene::init() {
 					std::string blocked = properties["Blocked"].asString();
 					if ("True" == blocked) {
 						// Send blocked cell to RAIG
-						m_RaigAI->SetCellBlocked(Vector3(x, 0, z));
+						m_RaigAI->SetCellBlocked(base::Vector3(x, 0, z));
 					}
 				}
         	}
@@ -106,7 +106,7 @@ bool HelloWorldScene::init() {
 
 
 	// Find a path through the game world
-    m_RaigAI->FindPath(new Vector3(0, 0, 0), new Vector3(m_iGameWorldSize, 0, m_iGameWorldSize));
+    m_RaigAI->FindPath(new base::Vector3(0, 0, 0), new base::Vector3(m_iGameWorldSize, 0, m_iGameWorldSize));
 
     srand(time(0));
 
@@ -116,39 +116,39 @@ bool HelloWorldScene::init() {
 
 void HelloWorldScene::update(float dt)
 {
-	if(m_RaigAI)
-	{
-		m_RaigAI->Update();
+	m_RaigAI->Update();
 
-		if(m_RaigAI->IsPathfindingComplete())
+	// Get the path processed by the remote service
+	//m_RaigAI->GetPath();
+
+	if(!m_RaigAI->GetPath().empty())
+	{
+		// Once RAIG has returned a path loop the vector and color the cells in the path
+		pathColorR = rand() % (255 + 1 - 0) + 0;
+		pathColorG = rand() % (255 + 1 - 0) + 0;
+		pathColorB = rand() % (255 + 1 - 0) + 0;
+
+		for(auto node = m_RaigAI->GetPath().begin(); node != m_RaigAI->GetPath().end(); ++node)
 		{
-			// Get the path processed by the remote service
-			m_vPath = m_RaigAI->GetPath();
-
-			if(!m_vPath.empty())
-			{
-				// Once RAIG has returned a path loop the vector and color the cells in the path
-				int pathColorR = rand() % (255 + 1 - 0) + 0;
-				int pathColorG = rand() % (255 + 1 - 0) + 0;
-				int pathColorB = rand() % (255 + 1 - 0) + 0;
-				for(auto node = m_vPath.begin(); node != m_vPath.end(); ++node)
-				{
-					m_BackgroundLayer->getTileAt(Vec2((*node)->m_iX, (*node)->m_iZ))->setColor(Color3B(pathColorR, pathColorG, pathColorB));
-				}
-				m_vPath.clear();
-			}
+			//m_BackgroundLayer->getTileAt(Vec2((*node)->m_iX, (*node)->m_iZ))->setColor(Color3B(pathColorR, pathColorG, pathColorB));
+			int x = (*node)->m_iX;
+			int z = (*node)->m_iZ;
+			auto tile = m_BackgroundLayer->getTileAt(Vec2(x, z));
+			tile->setColor(Color3B(pathColorR, pathColorG, pathColorB));
 		}
+
+		m_RaigAI->GetPath().clear();
 	}
 
-	if(m_RaigAI->IsPathfindingComplete())
-	{
-		// rand() % (max_number + 1 - minimum_number)) + minimum_number;
-		m_iStartX = rand() % (m_iGameWorldSize + 1 - 0) + 0;
-		m_iStartZ = rand() % (m_iGameWorldSize + 1 - 0) + 0;
-		m_iGoalX = rand() % (m_iGameWorldSize + 1 - 0) + 0;
-		m_iGoalZ = rand() % (m_iGameWorldSize + 1 - 0) + 0;
-	}
-	m_RaigAI->FindPath(new Vector3(m_iStartX, 0, m_iStartZ), new Vector3(m_iGoalX, 0, m_iGoalZ));
+
+
+	// rand() % (max_number + 1 - minimum_number)) + minimum_number;
+	m_iStartX = rand() % (m_iGameWorldSize + 1 - 0) + 0;
+	m_iStartZ = rand() % (m_iGameWorldSize + 1 - 0) + 0;
+	m_iGoalX = rand() % (m_iGameWorldSize + 1 - 0) + 0;
+	m_iGoalZ = rand() % (m_iGameWorldSize + 1 - 0) + 0;
+
+	m_RaigAI->FindPath(new base::Vector3(m_iStartX, 0, m_iStartZ), new base::Vector3(m_iGoalX, 0, m_iGoalZ));
 }
 
 void HelloWorldScene::menuCloseCallback(Ref* pSender) {

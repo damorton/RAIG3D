@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="50" height="50" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="ground_tiles" tilewidth="32" tileheight="32">
   <image source="ground_tiles.png" width="672" height="701"/>
   <tile id="43">
@@ -13,9 +13,9 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Background" width="100" height="100">
+ <layer name="Background" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJztmssRwjAQxVIQZdB/TZyZIeTjrJ9s66AjePcJB2eT17ZtL0Hx/kO6Nvn2lK5B9JHG6xULc2fRuj/+fb6adHa9PaXXX9nXCv2M3tNM6IaN+4eNfvjohYlemOiFiV6Y6IWJZzIuuuGhEyY64UF3suoMnVL7rPnezYFQQ7oOCskcdMHxoQeOD13oYwQSuYzgInG+08V1L1W1p841o/k4ctPSC+E+a1QXV/yMMktIry/6IKMPFoRrpvx2kq5Dvn3ohIE+eOiEhz5YuEd46ISHTnjohAVl3in7XtK1iPvkqQyrvaRIZ9uSXeV398xwBne0eqp7pbsh1ED1o488+mCScqIPlhPK/xiV3tcvfbCc6OO6k8q89HHfS+Ua6T5HotqJPu470QcHfbDQBwt9cPD/g4U+OHjeXQvv0Vnog4U+eOiDRdoH7b2CNMm+9xys7Cb5PsVR3is6ST67P7vuik5G+A2s4qRnjy2Z6uN5D61rreCkur+nM1zBR+XM8unvnn2P6INF1XmyKrcV3uOscDLDs5sZfPS4rx7ljE5w0qP+3hmN6KTnXKP3bCt5hjjbZ3pO3mtdwvxsL+sjCDXO6OOqF1p9M7o4m0G6nqq6aP2NSst+of7WZuJMxnrIe9GBiIiIXOED5QPx+w==
+   eJzt1bkNACEMBVEK2jLovyYKIPWa8dcEk2I9ce211g7pG16qo2t/q+fo0NHhmJoOVjruNf5+G3TomOggpIOVDlY6WKU5Xv1l1fN16CCca1o6WOlgpYOVjnuNl3+YDh1UByEdrFIdXXe2eo4OHR2OqaU5Ejo6nPYg
   </data>
  </layer>
 </map>

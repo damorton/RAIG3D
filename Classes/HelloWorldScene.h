@@ -1,11 +1,10 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef HELLOWORLD_SCENE_H_
+#define HELLOWORLD_SCENE_H_
 
-#include "../cocos2d/cocos/cocos2d.h"
 #include <vector>
-#include "../external/libraig/include/raig.h"
 
-class Vector3;
+#include "cocos2d.h"
+#include "raig/raig_client.h"
 
 class HelloWorldScene : public cocos2d::Layer
 {
@@ -27,11 +26,13 @@ private:
     cocos2d::TMXTiledMap *m_TiledMap;
     cocos2d::TMXLayer *m_BackgroundLayer;
 
-    raig::Raig *m_RaigAI;
-
-    std::vector<std::shared_ptr<Vector3> > m_vPath;
+    raig::RaigClient *m_RaigAI;
 
     int m_iGameWorldSize;
+
+    int pathColorR;
+    int pathColorG;
+    int pathColorB;
 
     int m_iStartX;
     int m_iStartZ;
