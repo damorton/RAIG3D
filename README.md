@@ -32,3 +32,4 @@ $ cocos run -s ./ -p linux
 - libraig - https://github.com/damorton/libraig.git
 
 Dependencies are located in the `external` directory.
+
