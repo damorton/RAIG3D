@@ -28,6 +28,26 @@ cmake_minimum_required(VERSION 2.8)
 set(APP_NAME RAIG3D)
 project (${APP_NAME})
 
+include(ExternalProject)
+
+ExternalProject_Add(libraig
+   PREFIX ${CMAKE_BINARY_DIR}/build/libraig
+   GIT_REPOSITORY https://github.com/damorton/libraig.git
+   GIT_TAG master
+   BINARY_DIR ${CMAKE_BINARY_DIR}/external/libraig
+   SOURCE_DIR ${CMAKE_BINARY_DIR}/external/libraig
+   INSTALL_COMMAND ""
+   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}
+)
+
+if(UNIX AND NOT APPLE)
+  set(PROJECT_LINK_LIBS libraig.so)
+else()
+  set(PROJECT_LINK_LIBS libraig.dylib)
+endif()
+
+
+
 set(COCOS2D_ROOT ${CMAKE_SOURCE_DIR}/cocos2d)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${COCOS2D_ROOT}/cmake/Modules/")
@@ -149,9 +169,13 @@ else()
   endif ( WIN32 )
 endif()
 
-target_link_libraries(${APP_NAME} ${CMAKE_SOURCE_DIR}/external/libraig/lib/libraig.so)
+# Libraig
+target_link_libraries(${APP_NAME} ${CMAKE_SOURCE_DIR}/external/libraig/lib/${PROJECT_LINK_LIBS})
+add_dependencies(${APP_NAME} libraig)
+
 
 target_link_libraries(${APP_NAME} cocos2d)
+
 
 set(APP_BIN_DIR "${CMAKE_BINARY_DIR}/bin")
 
