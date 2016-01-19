@@ -123,8 +123,6 @@ void HelloWorldScene::update(float dt)
 
 	if(!m_RaigAI->GetPath().empty())
 	{
-		std::cout << "update() Completed path size " << m_RaigAI->GetPath().size() << std::endl;
-
 		// Once RAIG has returned a path loop the vector and color the cells in the path
 		pathColorR = rand() % (255 + 1 - 0) + 0;
 		pathColorG = rand() % (255 + 1 - 0) + 0;
