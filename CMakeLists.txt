@@ -133,7 +133,7 @@ include_directories(
   ${COCOS2D_ROOT}/cocos
   ${COCOS2D_ROOT}/cocos/platform
   ${COCOS2D_ROOT}/cocos/audio/include/
-  ${CMAKE_SOURCE_DIR}/external/libraig/include
+  ${CMAKE_BINARY_DIR}/external/libraig/include
   Classes
 )
 if ( WIN32 )
@@ -170,7 +170,7 @@ else()
 endif()
 
 # Libraig
-target_link_libraries(${APP_NAME} ${CMAKE_SOURCE_DIR}/external/libraig/lib/${PROJECT_LINK_LIBS})
+target_link_libraries(${APP_NAME} ${CMAKE_BINARY_DIR}/external/libraig/lib/${PROJECT_LINK_LIBS})
 add_dependencies(${APP_NAME} libraig)
 
 
