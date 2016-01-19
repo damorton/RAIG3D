@@ -11,10 +11,6 @@ Raig3D is a Cocos2dx C++ demonstration project for the server side application `
 ```
 m_RaigAI->InitConnection("127.0.0.1", "27000");
 ```
-or to connect to my super Raspberry Pi:
-```
-m_RaigAI->InitConnection("damortonpi.duckdns.org", "27000");
-```
 
 ### Ubuntu 
 
