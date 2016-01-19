@@ -33,7 +33,7 @@ include(ExternalProject)
 ExternalProject_Add(libraig
    PREFIX ${CMAKE_BINARY_DIR}/build/libraig
    GIT_REPOSITORY https://github.com/damorton/libraig.git
-   GIT_TAG develop
+   GIT_TAG master
    BINARY_DIR ${CMAKE_BINARY_DIR}/external/libraig
    SOURCE_DIR ${CMAKE_BINARY_DIR}/external/libraig
    INSTALL_COMMAND ""
