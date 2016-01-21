@@ -28,26 +28,6 @@ cmake_minimum_required(VERSION 2.8)
 set(APP_NAME RAIG3D)
 project (${APP_NAME})
 
-include(ExternalProject)
-
-ExternalProject_Add(libraig
-   PREFIX ${CMAKE_BINARY_DIR}/build/libraig
-   GIT_REPOSITORY https://github.com/damorton/libraig.git
-   GIT_TAG develop
-   BINARY_DIR ${CMAKE_BINARY_DIR}/external/libraig
-   SOURCE_DIR ${CMAKE_BINARY_DIR}/external/libraig
-   INSTALL_COMMAND ""
-   CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}
-)
-
-if(UNIX AND NOT APPLE)
-  set(PROJECT_LINK_LIBS libraig.so)
-else()
-  set(PROJECT_LINK_LIBS libraig.dylib)
-endif()
-
-
-
 set(COCOS2D_ROOT ${CMAKE_SOURCE_DIR}/cocos2d)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${COCOS2D_ROOT}/cmake/Modules/")
@@ -132,8 +112,7 @@ include_directories(
   /usr/include/GLFW
   ${COCOS2D_ROOT}/cocos
   ${COCOS2D_ROOT}/cocos/platform
-  ${COCOS2D_ROOT}/cocos/audio/include/
-  ${CMAKE_BINARY_DIR}/external/libraig/include
+  ${COCOS2D_ROOT}/cocos/audio/include/  
   Classes
 )
 if ( WIN32 )
@@ -170,9 +149,13 @@ else()
 endif()
 
 # Libraig
-target_link_libraries(${APP_NAME} ${CMAKE_BINARY_DIR}/external/libraig/lib/${PROJECT_LINK_LIBS})
-add_dependencies(${APP_NAME} libraig)
-
+find_library(LIBRAIG NAMES raig
+            PATHS ${COCOS2D_ROOT}/external/libraig/lib
+)
+include_directories(
+	${COCOS2D_ROOT}/external/libraig/include
+)
+target_link_libraries(${APP_NAME} ${LIBRAIG})
 
 target_link_libraries(${APP_NAME} cocos2d)
 
