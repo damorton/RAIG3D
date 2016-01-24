@@ -5,3 +5,11 @@ linux-build/
 bin/
 *~
 libraig
+cocos2d/cocos/platform/android/java/gen/
+cocos2d/cocos/platform/android/java/local.properties
+proj.android/assets/
+proj.android/gen/
+proj.android/libs/
+proj.android/local.properties
+proj.android/obj/
+

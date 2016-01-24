@@ -30,6 +30,7 @@ bool HelloWorldScene::init() {
 
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    Size winSize = Director::getInstance()->getWinSize();
 
     // Perspective camera
     //auto s = Director::getInstance()->getWinSize();
@@ -45,7 +46,9 @@ bool HelloWorldScene::init() {
 
     // 3D Sprite
     auto orc = cocos2d::Sprite3D::create("orc.c3b");
-    orc->setScale(5);
+
+    float orcScaleFactor = 5.0f;
+    orc->setScale((winSize.width / winSize.height) * orcScaleFactor);
     orc->setPosition3D(Vec3(0, 0, 0));
     orc->setRotation3D(Vec3(0, 180, 0));
     orc->setGlobalZOrder(1);
@@ -64,8 +67,14 @@ bool HelloWorldScene::init() {
     m_BackgroundLayer = m_TiledMap->getLayer("Background");
     Size mapSize = m_TiledMap->getMapSize();
     Size tileSize = m_TiledMap->getTileSize();
-    m_TiledMap->setPosition3D(Vec3(-(mapSize.width * tileSize.width / 2), 0, (mapSize.width * tileSize.width / 2)));
+    //m_TiledMap->setPosition3D(Vec3(-(mapSize.width * tileSize.width / 2), 0, (mapSize.width * tileSize.width / 2)));
+    m_TiledMap->setAnchorPoint(Vec2(0.5, 0.5));
+    m_TiledMap->setPosition3D(Vec3(0, 0, 0));
     m_TiledMap->setRotation3D(Vec3(-90, 0, 0));
+
+    float tilemapScaleFactor = 0.8f;
+    m_TiledMap->setScale((winSize.width / winSize.height) * tilemapScaleFactor);
+
     this->addChild(m_TiledMap);
 
     // Set camera mask to only render new camera objects
@@ -73,8 +82,8 @@ bool HelloWorldScene::init() {
 
     // Create RAIG and connect to remote server
     m_RaigAI = new raig::RaigClient();
-    //m_RaigAI->InitConnection("192.168.1.100", "27000");
     m_RaigAI->InitConnection("192.168.1.100", "27000");
+    //m_RaigAI->InitConnection("127.0.0.1", "27000");
 
     // Send RAIG the size of the game world and type of service being
     auto layerSize = m_BackgroundLayer->getLayerSize();
