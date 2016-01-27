@@ -112,7 +112,7 @@ include_directories(
   /usr/include/GLFW
   ${COCOS2D_ROOT}/cocos
   ${COCOS2D_ROOT}/cocos/platform
-  ${COCOS2D_ROOT}/cocos/audio/include/  
+  ${COCOS2D_ROOT}/cocos/audio/include/    
   Classes
 )
 if ( WIN32 )
@@ -153,7 +153,7 @@ find_library(LIBRAIG NAMES raig
             PATHS ${COCOS2D_ROOT}/external/libraig/lib
 )
 include_directories(
-	${COCOS2D_ROOT}/external/libraig/include
+    ${COCOS2D_ROOT}/external/libraig/include
 )
 target_link_libraries(${APP_NAME} ${LIBRAIG})
 
