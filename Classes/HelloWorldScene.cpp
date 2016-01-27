@@ -47,8 +47,10 @@ bool HelloWorldScene::init() {
     // 3D Sprite
     auto orc = cocos2d::Sprite3D::create("orc.c3b");
 
-    float orcScaleFactor = 5.0f;
+    // Scale sprite
+    float orcScaleFactor = 1.0f;
     orc->setScale((winSize.width / winSize.height) * orcScaleFactor);
+
     orc->setPosition3D(Vec3(0, 0, 0));
     orc->setRotation3D(Vec3(0, 180, 0));
     orc->setGlobalZOrder(1);
@@ -72,7 +74,8 @@ bool HelloWorldScene::init() {
     m_TiledMap->setPosition3D(Vec3(0, 0, 0));
     m_TiledMap->setRotation3D(Vec3(-90, 0, 0));
 
-    float tilemapScaleFactor = 0.8f;
+    // Scale tilemap
+    float tilemapScaleFactor = 1.0f;
     m_TiledMap->setScale((winSize.width / winSize.height) * tilemapScaleFactor);
 
     this->addChild(m_TiledMap);
@@ -82,8 +85,9 @@ bool HelloWorldScene::init() {
 
     // Create RAIG and connect to remote server
     m_RaigAI = new raig::RaigClient();
-    m_RaigAI->InitConnection("192.168.1.100", "27000");
-    //m_RaigAI->InitConnection("127.0.0.1", "27000");
+    //m_RaigAI->InitConnection("192.168.1.100", "27000");
+    m_RaigAI->InitConnection("127.0.0.1", "27000");
+    //m_RaigAI->InitConnection("damortonpi.duckdns.org", "27000");
 
     // Send RAIG the size of the game world and type of service being
     auto layerSize = m_BackgroundLayer->getLayerSize();
