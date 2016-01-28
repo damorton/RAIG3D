@@ -148,7 +148,7 @@ else()
   endif ( WIN32 )
 endif()
 
-# Libraig
+# Libraig (linux)
 find_library(LIBRAIG NAMES raig
             PATHS ${COCOS2D_ROOT}/external/libraig/lib
 )

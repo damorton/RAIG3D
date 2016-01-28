@@ -1,6 +1,5 @@
 #include "HelloWorldScene.h"
 
-#include <unistd.h>
 #include <time.h>
 
 USING_NS_CC;
