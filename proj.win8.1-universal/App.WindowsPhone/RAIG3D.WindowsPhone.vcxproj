@@ -82,6 +82,9 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>arm</AppxBundlePlatforms>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\projects\RAIG3D\cocos2d\external\libraig\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
       <AdditionalOptions>/bigobj /Zm200 %(AdditionalOptions)</AdditionalOptions>
@@ -110,12 +113,14 @@
       <AdditionalOptions>/bigobj /Zm200 %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <ForcedIncludeFiles>pch.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>../../Classes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\projects\RAIG3D\cocos2d\external\libraig\include;../../Classes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>CC_WINDOWS_PHONE_8_1;CC_ENABLE_CHIPMUNK_INTEGRATION=1;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <IgnoreSpecificDefaultLibraries>MSVCRT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalLibraryDirectories>C:\projects\RAIG3D\cocos2d\external\libraig\lib\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>raig.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
