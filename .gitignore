@@ -1,10 +1,11 @@
 .cproject
+.vs
+*.opendb
 .project
 .settings/
 linux-build/
 bin/
 *~
-libraig
 cocos2d/cocos/platform/android/java/gen/
 cocos2d/cocos/platform/android/java/local.properties
 proj.android/assets/
@@ -25,3 +26,6 @@ Debug.win32/
 *.user
 Generated Files
 ipch
+proj.win32
+
+

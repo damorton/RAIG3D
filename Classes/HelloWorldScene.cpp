@@ -84,7 +84,9 @@ bool HelloWorldScene::init() {
 
     // Create RAIG and connect to remote server
     m_RaigAI = new raig::RaigClient();
-    m_RaigAI->InitConnection("192.168.1.100", "27000");
+	std::shared_ptr<std::string> ipAddress(new std::string("192.168.1.100"));
+	std::shared_ptr<std::string> service(new std::string("27000"));
+	m_RaigAI->InitConnection(ipAddress, service);
     //m_RaigAI->InitConnection("127.0.0.1", "27000");
     //m_RaigAI->InitConnection("damortonpi.duckdns.org", "27000");
 

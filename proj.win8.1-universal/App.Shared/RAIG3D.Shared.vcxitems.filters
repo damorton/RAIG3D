@@ -32,7 +32,7 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)OpenGLES.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)OpenGLESPage.xaml.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Cocos2dRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Cocos2dRenderer.h" />    
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)OpenGLESPage.xaml" />
