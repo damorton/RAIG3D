@@ -27,4 +27,8 @@
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\cocos2d\external\libraig\external\libsocket\lib\win8.1x86\socket.dll" />
+    <None Include="..\..\cocos2d\external\libraig\lib\win8.1x86\raig.dll" />
+  </ItemGroup>
 </Project>

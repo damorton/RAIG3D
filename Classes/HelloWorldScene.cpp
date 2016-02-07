@@ -118,6 +118,9 @@ bool HelloWorldScene::init() {
 
 	//m_RaigAI->SetCellOpen(Vector3(0, 0, 0));
 
+	LogFile.open("c:\\Logfile.txt");
+	LogFile << "Init" << std::endl;
+	LogFile.close();
 
 	// Find a path through the game world
     m_RaigAI->FindPath(new base::Vector3(0, 0, 0), new base::Vector3(m_iGameWorldSize, 0, m_iGameWorldSize));
@@ -167,7 +170,6 @@ void HelloWorldScene::update(float dt)
 
 void HelloWorldScene::menuCloseCallback(Ref* pSender) {
     Director::getInstance()->end();
-
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     exit(0);
 #endif

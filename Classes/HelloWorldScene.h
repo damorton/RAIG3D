@@ -5,6 +5,8 @@
 
 #include "cocos2d.h"
 #include "raig/raig_client.h"
+#include <fstream>
+#include <iostream>
 
 class HelloWorldScene : public cocos2d::Layer
 {
@@ -38,6 +40,9 @@ private:
     int m_iStartZ;
     int m_iGoalX;
     int m_iGoalZ;
+
+	std::ofstream LogFile;
+
 };
 
 #endif // __HELLOWORLD_SCENE_H__
