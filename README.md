@@ -21,11 +21,29 @@ m_RaigAI->InitConnection("127.0.0.1", "27000");
 ```
 $ cocos run -s ./ -p linux
 ```
-- Run `$ ./linux-build/bin/RAIG3D`
 
-### Windows 
+### Windows 32 bit (Debug)
 
-- Coming soon..
+- Download the repo
+- Extract contents of the .zip file
+- `cd RAIG3D-master/`
+- Build
+```
+$ cocos run -s ./ -p win32
+```
+
+### Windows 8.1/Windows Phone 8.1
+
+Not available due to Winsock API portability
+
+### Windows 10
+
+- Download the repo
+- Extract contents of the .zip file
+- `cd RAIG3D-master/`
+- Open `.sln` in the proj.win10 directory
+- Build for phone using `ARM` target
+- Build for desktop using `x64`/`x86` target
 
 ## Dependencies
 
