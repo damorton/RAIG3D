@@ -148,15 +148,12 @@ else()
   endif ( WIN32 )
 endif()
 
-if ( WIN32 )
-    # Add .lib and .dll to same directory as the .exe file
-else()
-    # Libraig (linux)
-    find_library(LIBRAIG NAMES raig
-                PATHS ${COCOS2D_ROOT}/external/libraig/lib/linux
-    )
-endif(WIN32)
+# Libraig (linux)
+find_library(LIBRAIG NAMES raig
+	PATHS ${COCOS2D_ROOT}/external/libraig/lib/linux
+)
 include_directories(
+	${COCOS2D_ROOT}/external/libraig/external
     ${COCOS2D_ROOT}/external/libraig/include
 )
 target_link_libraries(${APP_NAME} ${LIBRAIG})
