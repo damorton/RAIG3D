@@ -40,9 +40,6 @@ private:
     int m_iStartZ;
     int m_iGoalX;
     int m_iGoalZ;
-
-	std::ofstream LogFile;
-
 };
 
 #endif // __HELLOWORLD_SCENE_H__
